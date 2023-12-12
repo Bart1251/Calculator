@@ -17,6 +17,10 @@ namespace CalculatorApp
 
     public partial class MainPage : ContentPage
     {
+
+        private double width = 0;
+        private double height = 0;
+
         private double a = 0;
         private double b = 0;
         private double result = 0;
@@ -24,10 +28,25 @@ namespace CalculatorApp
         private bool comma = false;
         private bool equalsClicked = false;
 
+
         public MainPage()
         {
             InitializeComponent();
         }
+
+
+        protected override void OnSizeAllocated(double width, double height)
+        {
+            base.OnSizeAllocated(width, height);
+            if (width != this.width || height != this.height)
+            {
+                this.width = width;
+                this.height = height;
+                if (this.width > this.height)
+                {
+                    DisplayAlert("teraz", "teraz", "teraz");
+                }
+            }
 
         private void NumberClick(object sender, EventArgs e)
         {
