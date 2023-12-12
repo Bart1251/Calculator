@@ -100,7 +100,7 @@ namespace CalculatorApp
                     operation = Operation.Square;
                     result = a * a;
                     break;
-                case "sqrt":
+                case "SQRT":
                     operation = Operation.SquareRoot;
                     result = Math.Sqrt(a);
                     break;
@@ -176,6 +176,7 @@ namespace CalculatorApp
                     OutputEquation_Label.Text = "1/" + a.ToString();
                     break;
             }
+            Output_Label.Text = result.ToString();
             a = result;
             b = 0;
             operation = Operation.None;
@@ -189,11 +190,11 @@ namespace CalculatorApp
                 case Operation.Add:
                     return "+";
                 case Operation.Subtract:
-                    return "+";
+                    return "-";
                 case Operation.Multiply:
-                    return "+";
+                    return "x";
                 case Operation.Divide:
-                    return "+";
+                    return "/";
             }
             return "";
         }
