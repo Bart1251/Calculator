@@ -47,14 +47,15 @@ namespace CalculatorApp
                     DisplayAlert("teraz", "teraz", "teraz");
                 }
             }
+        }
 
         private void NumberClick(object sender, EventArgs e)
         {
             try
             {
-                if(operation == Operation.None)
+                if (operation == Operation.None)
                 {
-                    if(comma && !a.ToString().Contains(","))
+                    if (comma && !a.ToString().Contains(","))
                         a = double.Parse(a.ToString() + "," + ((Button)sender).Text);
                     else
                         a = double.Parse(a.ToString() + ((Button)sender).Text);
@@ -70,7 +71,7 @@ namespace CalculatorApp
                 }
                 Print();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -81,7 +82,7 @@ namespace CalculatorApp
             comma = false;
             if (operation != Operation.None)
                 return;
-            switch(((Button)sender).Text)
+            switch (((Button)sender).Text)
             {
                 case "+":
                     operation = Operation.Add;
@@ -115,7 +116,7 @@ namespace CalculatorApp
         {
             if (operation == Operation.None)
                 return;
-            switch(operation)
+            switch (operation)
             {
                 case Operation.Add:
                     result = a + b;
@@ -148,13 +149,13 @@ namespace CalculatorApp
                 OutputEquation_Label.Text = "";
                 return;
             }
-            switch(operation)
+            switch (operation)
             {
                 case Operation.Add:
                 case Operation.Subtract:
                 case Operation.Multiply:
                 case Operation.Divide:
-                    if(equalsClicked)
+                    if (equalsClicked)
                     {
                         OutputEquation_Label.Text = a.ToString() + " " + OperationToSign(operation) + " " + b.ToString() + " =";
                         Output_Label.Text = result.ToString();
@@ -183,7 +184,7 @@ namespace CalculatorApp
 
         private string OperationToSign(Operation operation)
         {
-            switch(operation)
+            switch (operation)
             {
                 case Operation.Add:
                     return "+";
