@@ -163,7 +163,7 @@ namespace CalculatorApp
                     else
                     {
                         OutputEquation_Label.Text = a.ToString() + " " + OperationToSign(operation);
-                        Output_Label.Text = result.ToString();
+                        Output_Label.Text = b.ToString();
                     }
                     return;
                 case Operation.Square:
